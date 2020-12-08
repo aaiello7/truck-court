@@ -1,0 +1,20 @@
+<%- include('partials/header'); -%>
+  <h1 class="my-4 p-3">¿Qué se te antoja?</h1>
+  <div class="container mx-auto">
+    <div class="row">
+      <% rests.forEach(function(rest){ %>
+        <div class="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-8 mx-auto">
+        <div class="card mb-4 shadow">
+          <img class="card-img-top p-3" src="<%= rest.logo %>" alt="Rest logo">
+          <div class="card-body">
+            <h5 class="card-title"><%= rest.name %></h5>
+            <p class="card-text line-fade"> <%= rest.desc %> </p>
+            <a href="/rest/<%= rest.name %>" class="card-link"></a>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+
+<%- include('partials/footer'); -%>

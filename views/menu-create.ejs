@@ -1,0 +1,38 @@
+<%- include('partials/header'); -%>
+  <h1 class="my-4 p-3">Ingresa los detalles de tu menu</h1>
+  <form class="container p3" action="/menuData" method="post" enctype="multipart/form-data">
+    <!-- Logo -->
+    <div class="form-group">
+      <label for="restLogo">Vista previa:</label>
+      <div class="col-sm-4 px-0">
+        <div class="input-group mb-3">
+            <div class="custom-file">
+                <input name="restLogo" type="file" class="custom-file-input" id="inputGroupFile">
+                <label class="custom-file-label" for="inputGroupFile">Elegir imagen</label>
+            </div>
+        </div>
+        <div class="border rounded-lg text-center p-3">
+            <img src="/images/icons/pic.svg" class="img-fluid" id="preview" />
+        </div>
+      </div>
+    </div>
+    <!-- Name -->
+    <div class="form-group">
+      <label for="restName">Nombre:</label>
+      <input name="restName" type="text" class="form-control">
+    </div>
+    <!-- Description -->
+    <div class="form-group">
+      <label for="restDesc">Descripción:</label>
+      <textarea name="restDesc" class="form-control" maxlength="300" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Agregar</button>
+  </form>
+
+  <!-- File Upload Scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/scripts/bs-custom-file-input.js"></script>
+<script type="text/javascript" src="/scripts/fileUpload.js"></script>
+
+
+<%- include('partials/footer'); -%>

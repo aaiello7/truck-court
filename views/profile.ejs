@@ -1,0 +1,102 @@
+<%- include('partials/header'); -%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 bg-light">
+      <div class="col mt-3">
+        <img class="profile-img " src="<%= user.pic %>" alt="Profile Pic">
+        <div class="file btn btn-lg btn-primary">
+          Editar Perfil
+          <input type="file" name="file" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 mx-3">
+      <div class="profile-head ">
+        <h3>Restaurantes:</h3>
+        <!-- Horizontal scroll for Restaurants -->
+        <div class="container horizontal-scrollable">
+            <% if (user.restaurants.length != 0) { %>
+            <% rests.forEach(function(rest){ %>
+            <div class="col-md-4 hs">
+              <div class="info-card shadow">
+                <img class="card-img-top p-3" src="../<%= rest.logo %>" alt="Rest logo">
+                <a href="/profile/<%= rest.name %>" class="card-link"></a>
+              </div>
+            </div>
+            <% }); %>
+            <% } %>
+            
+            <!-- Add new -->
+            <div class="col-md-4 my-2 hs">
+              <div class="info-card shadow">
+                <img class="card-img-top p-3" src="/images/icons/add.svg" alt="New Rest">
+                <a href="/rest-register" class="card-link"></a>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- User info -->
+  <div class="row">
+    <div class="col-md-4 bg-light">
+      <div class="row mt-5">
+        <div class="col-md-4 ">
+          <label>Nombre:</label>
+        </div>
+        <div class="col-md-6">
+          <p><%= user.username %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label>Email:</label>
+        </div>
+        <div class="col-md-6">
+          <p><%= user.email %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 m-3">
+      <div class="tab-content profile-tab" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="row p-3">
+            <ul class="nav nav-tabs col-sm-12 mb-5" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="profile" aria-selected="false">Stats</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Restaurant Info -->
+            <div class="row">
+              <div class="col-md-4 ">
+                <label> Nombre: </label>
+              </div>
+              <div class="col-md-6">
+                <p><%= rest.name %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label> Descripción: </label>
+              </div>
+              <div class="col-md-6">
+                <p><%= rest.desc %></p>
+              </div>
+            </div>
+
+
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <!-- Stats for each restaurant -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer'); -%>
